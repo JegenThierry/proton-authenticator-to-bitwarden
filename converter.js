@@ -17,12 +17,7 @@ function convertFile() {
         try {
           const url = new URL(uriString);
           const label = decodeURIComponent(url.pathname.replace(/^\//, ""));
-
-          if (label.includes(":")) {
-            username = label.split(":")[1].trim();
-          } else {
-            username = label;
-          }
+          username = entry.content.name;
         } catch (e) {
           console.warn(`[Warning] Could not parse URI for ID: ${entry.id}`);
         }
@@ -60,4 +55,3 @@ function convertFile() {
 }
 
 convertFile();
-
